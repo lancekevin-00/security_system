@@ -1,0 +1,18 @@
+#! /bin/bash
+
+while true
+do
+if grep -q '#' passcode_records/current.txt;then
+	echo "# found"
+	break
+else
+	echo "# not found"
+	sleep 0.2s
+	./input.py
+	cat passcode_records/current.txt
+fi
+done
+sed 's/#//' passcode_records/current.txt
+echo "the code entered is:"
+cat passcode_records/current.txt
+./tester

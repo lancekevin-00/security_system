@@ -1,0 +1,13 @@
+#! /bin/bash
+echo "master has begun"
+file="on.txt"
+while true
+do
+if [ -f "$file" ]
+	then
+	python motion_detection.py
+	else
+	touch "$file"
+	echo "not on"
+fi
+done

@@ -1,0 +1,4 @@
+#! /bin/bash
+file=../recordings/$(date '+%H:%M:%S_%d-%m-%Y').avi
+ffmpeg -f video4linux2 -t 20 -i /dev/video0 temp.avi
+mv temp.avi "$file"

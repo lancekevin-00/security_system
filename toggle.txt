@@ -1,0 +1,27 @@
+#!/bin/bash
+echo "testing"
+file1="on.txt"
+file2="sentry_scripts/on.txt"
+
+if [ -f "$file1" ]
+then
+	echo "file exists"
+	#add ssh feature to remove the file from sentry points
+	rm "$file1"
+	rm "$file2"
+	./led_toggle/red_on.py
+	echo "red on"
+	./led_toggle/green_off.py
+	echo "green off"
+else
+	echo "file does not exist"
+	#add ssh feature to add the file to sentry points
+	touch "$file1"
+	touch "$file2"
+	./led_toggle/red_off.py
+	echo "red off"
+	./led_toggle/green_on.py
+	echo "green on"
+fi
+
+echo "test complete"

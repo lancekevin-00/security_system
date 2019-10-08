@@ -1,0 +1,6 @@
+#! /bin/bash
+while true
+do
+./code_entry
+done
+

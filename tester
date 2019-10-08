@@ -1,0 +1,21 @@
+#! /bin/bash
+passcode="1234#"
+
+file="passcode_records/current.txt"
+entered=`sudo cat "$file"`
+
+echo "$entered"
+echo "$passcode"
+
+if [ "$entered" == "$passcode" ]
+then
+  echo "correct passcode"
+  /bin/bash toggle.txt
+else
+  echo "incorrect passcode" >> passcode_records/pre_attempts.txt
+fi
+
+
+echo ",`date +%d/%m/%Y_%H:%M:%S`" >> passcode_records/current.txt
+cat passcode_records/current.txt >> passcode_records/pre_attempts.txt
+> $file
