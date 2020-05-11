@@ -1,0 +1,6 @@
+#! /bin/bash
+
+./master &
+cd sentry_scripts
+./camera_control &
+./master &
